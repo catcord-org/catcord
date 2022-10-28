@@ -2,6 +2,10 @@
 CatCord a basic client mod for Discord
 
 # Features
-Themes 👍
-Plugins 👍
-No dependencies 👍
+Themes: 👍
+
+Plugins: Soon™️
+
+No dependencies: 👍
+
+**Actually** Lightweight: 👍

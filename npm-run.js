@@ -1,0 +1,1 @@
+console.error("\nCatCord is not meant to be run in the command line,\nplease inject catcord by running \"npm run inject [platform]\".\n")

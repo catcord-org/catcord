@@ -1,0 +1,27 @@
+{
+  "name": "catcord",
+  "version": "1.0.0",
+  "description": "CatCord a basic client mod for Discord",
+  "main": "npm-run.js",
+  "scripts": {
+    "start": "node .",
+    "test": "node .",
+    "inject": "node inject.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catcord-org/catcord.git"
+  },
+  "keywords": [
+    "discord",
+    "clientmod",
+    "client",
+    "mod"
+  ],
+  "author": "french-cat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catcord-org/catcord/issues"
+  },
+  "homepage": "https://github.com/catcord-org/catcord#readme"
+}

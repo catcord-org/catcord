@@ -1,10 +1,9 @@
 <p align="center">
 <img src="assets/banner.png" />
 </p>
-<p align="center">
-CatCord a basic client mod for Discord
-</p>
-# Features
+<h2 align="center">CatCord a basic client mod for Discord</h2>
+<h1>Features</h1>
+
 Themes: 👍
 
 Plugins: Soon™️
@@ -12,4 +11,10 @@ Plugins: Soon™️
 No dependencies: 👍
 
 **Actually** Lightweight: 👍
-</p>
+
+<h1>Install</h1>
+```shell
+git clone https://github.com/catcord-org/catcord
+cd catcord
+npm run inject [stable,ptb,canary]
+```

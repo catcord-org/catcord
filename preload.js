@@ -6,4 +6,4 @@ if (originalPreload) {
   require(originalPreload);
 }
 
-require(__dirname + "/mod/catcord")(fetch)
+require(__dirname + "/mod/catcord")()

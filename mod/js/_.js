@@ -1,6 +1,6 @@
-module.exports = function (config) {
+module.exports = function () {
     document.addEventListener("DOMContentLoaded", function () {
-        require("./theme")(config)
-        require("./custom_js")(config)
+        require("./theme")()
+        require("./tracking")
     });
 }

@@ -2,7 +2,6 @@ let path = require("path");
 let electron = require("electron");
 let Module = require("module");
 
-
 let originalPreload;
 let preloadEntry = path.join(__dirname, './preload.js');
 
@@ -40,18 +39,9 @@ class BrowserWindow extends electron.BrowserWindow {
 
 Object.assign(BrowserWindow, electron.BrowserWindow);
 
-
 electron.ipcMain.on('catcord_preload', (ev) => {
     ev.returnValue = originalPreload;
 });
-
-electron.ipcMain.on('catcord_fetch', (ev, url) => {
-    fetch(args[0])
-        .then(_ => _[args[1]]())
-        .then(ev.returnValue)
-});
-
-
 
 let onReady = () => {
     Object.assign(BrowserWindow, electron.BrowserWindow);
@@ -66,7 +56,6 @@ let onReady = () => {
         require.cache[electronPath].exports = electronExports;
     };
 };
-
 
 let { filename } = module.parent;
 
@@ -85,7 +74,7 @@ if (filename.includes('discord_desktop_core')) {
 }
 
 const containsAds = (url) => {
-    if (/sentry.io/.test(url) || /science/.test(url) || /typing/.test(url)) {
+    if (url.includes("sentry") || url.includes("science") || url.includes("typing")) {
         return false
     } else {
         return false

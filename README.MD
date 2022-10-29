@@ -13,8 +13,14 @@ No dependencies: 👍
 **Actually** Lightweight: 👍
 
 <h1>Install</h1>
-```shell
+<code>
 git clone https://github.com/catcord-org/catcord
+</code>
+<br><br>
+<code>
 cd catcord
+</code>
+<br><br>
+<code>
 npm run inject [stable,ptb,canary]
-```
+</code>

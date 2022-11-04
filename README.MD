@@ -6,7 +6,7 @@
 
 Themes: 👍
 
-Plugins: Soon™️
+Plugins: 👍
 
 No dependencies: 👍
 

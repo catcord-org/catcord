@@ -1,9 +1,11 @@
-
-(function (open) {
-    window.XMLHttpRequest.prototype.open = function (a, url, b, c, d) {
-        if (url.toString().includes('https://api.spotify.com/v1/me/player/pause')) {
-            return open.apply(this, null);
+(function() {
+    let origSend = XMLHttpRequest.prototype.send;
+    XMLHttpRequest.prototype.send = function(data) {
+        let url = this.__sentry_xhr__.url;
+        let popit = url.split('/').pop().split('?')[0];
+        if (['pause'].includes(popit)) {
+            return false;
         }
-        return open.apply(this, arguments);
+        return origSend.apply(this, arguments);
     };
-}(XMLHttpRequest.prototype.open))
+})();

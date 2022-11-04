@@ -14,11 +14,28 @@ for (const method in console) {
     console[method] = console[method].__sentry_original__;
 }
 
-(function (open) {
-    window.XMLHttpRequest.prototype.open = function (a, url, b, c, d) {
-        if (url.toString().includes('/science' || '/track')) {
-            return open.apply(this, null);
+(function() {
+    let origSend = XMLHttpRequest.prototype.send;
+    XMLHttpRequest.prototype.send = function(data) {
+        let url = this.__sentry_xhr__.url;
+        let popit = url.split('/').pop().split('?')[0];
+        if (['science'].includes(popit) || ['track'].includes(popit)) {
+            return false;
         }
-        return open.apply(this, arguments);
+        let newurl = new URL(url).hostname;
+        if (['sentry.io'].includes(newurl)) {
+            return false;
+        }
+        return origSend.apply(this, arguments);
     };
-}(XMLHttpRequest.prototype.open))
+
+
+    let origsetRequestHeader = XMLHttpRequest.prototype.setRequestHeader;
+    XMLHttpRequest.prototype.setRequestHeader = function(data) {
+        if (['X-Track', 'X-Fingerprint'].includes(arguments[0])) {
+            return false;
+        }
+        return origsetRequestHeader.apply(this, arguments);
+    };
+
+})();

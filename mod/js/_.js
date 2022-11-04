@@ -3,5 +3,6 @@ module.exports = function () {
         require("./theme")()
         require("./plugin")() 
         require("./info")()
+        require("./internal")()
     });
 }

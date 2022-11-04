@@ -1,5 +1,5 @@
-module.exports = function async() {
-    window.catcord = {
+module.exports = function async(contextBridge) {
+    const catcord = {
         managers: {
             theme: {
              initTheme: function (url, name) {
@@ -11,7 +11,16 @@ module.exports = function async() {
              deleteTheme: function (name) {
                 document.getElementById(`catcord.theme.manager.${name.toString().toLowerCase().replace(/ /, "-")}`).remove()
              }
-            }
+            },
+            plugin: {
+                initPlugin: function (url, name) {
+                   const element = document.createElement("script")
+                   element.id = `catcord.script.manager.${name.toString().toLowerCase().replace(/ /, "-")}`
+                   element.src = url
+                   element.setAttribute("defer", true)
+                   document.head.appendChild(element)
+                }
+               }
         },
         utility: {
             misc: {
@@ -27,5 +36,10 @@ module.exports = function async() {
             }
         }
     }
+
+    window.catcord = catcord
+
+    contextBridge.exposeInMainWorld('catcord', catcord)
+
     require("./js/_")()
 }

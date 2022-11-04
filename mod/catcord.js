@@ -18,7 +18,7 @@ module.exports = function async(contextBridge) {
                    element.id = `catcord.script.manager.${name.toString().toLowerCase().replace(/ /, "-")}`
                    element.src = url
                    element.setAttribute("defer", true)
-                   document.head.appendChild(element)
+                   document.body.appendChild(element)
                 }
                }
         },

@@ -1,4 +1,4 @@
-module.exports = function async(contextBridge) {
+module.exports = function async(ipcRenderer, contextBridge) {
     const catcord = {
         managers: {
             theme: {
@@ -33,7 +33,9 @@ module.exports = function async(contextBridge) {
                     ];
                     return aRgb;
                 }
-            }
+            },
+            catcord_dir: __dirname.replace("\\mod", ""),
+            ipc: ipcRenderer
         }
     }
 

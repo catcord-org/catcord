@@ -1,4 +1,4 @@
-(function() {
+(() => {
     let origSend = XMLHttpRequest.prototype.send;
     XMLHttpRequest.prototype.send = function(data) {
         let url = this.__sentry_xhr__.url;

@@ -43,6 +43,10 @@ electron.ipcMain.on('catcord_preload', (ev) => {
     ev.returnValue = originalPreload;
 });
 
+electron.ipcMain.on('catcord_update', (ev) => {
+    ev.returnValue = require('child_process').execSync(`cd ${__dirname} && git pull`);;
+});
+
 let onReady = () => {
     Object.assign(BrowserWindow, electron.BrowserWindow);
 

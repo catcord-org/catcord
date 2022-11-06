@@ -5,4 +5,4 @@ if (originalPreload) {
   require(originalPreload);
 }
 
-require(__dirname + "/mod/catcord")(contextBridge)
+require(__dirname + "/mod/catcord")(ipcRenderer, contextBridge)

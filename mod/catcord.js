@@ -32,6 +32,20 @@ module.exports = function async(ipcRenderer, contextBridge) {
                         parseInt(aRgbHex[2], 16)
                     ];
                     return aRgb;
+                },
+                isDeaf: function () {
+                    if (document.querySelectorAll('[aria-label="Deafen"]')[0].getAttribute("aria-checked") === "false") {
+                        return false
+                    } else {
+                        return true
+                    }
+                },
+                isMute: function () {
+                    if (document.querySelectorAll('[aria-label="Mute"]')[0].getAttribute("aria-checked") === "false") {
+                        return false
+                    } else {
+                        return true
+                    }
                 }
             },
             catcord_dir: __dirname.replace("\\mod", ""),

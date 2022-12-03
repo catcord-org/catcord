@@ -8,5 +8,6 @@
 
     if (nv.version > cv.version) {
         catcord.utility.ipc.sendSync("catcord_update")
+        location.reload()
     }
 })()

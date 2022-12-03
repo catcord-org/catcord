@@ -1,6 +1,6 @@
 {
   "name": "catcord",
-  "version": "34",
+  "version": "35",
   "description": "CatCord a basic client mod for Discord",
   "main": "npm-run.js",
   "scripts": {

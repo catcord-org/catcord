@@ -1,4 +1,4 @@
-const { readdirSync } = require('fs');
+const { readdirSync, readFileSync } = require('fs');
 const { join } = require("path");
 
 module.exports = function () {
@@ -6,7 +6,7 @@ module.exports = function () {
     readdirSync(path).forEach(function (pluginFile) {
         const pluginPath = join(path, pluginFile)
         if (pluginFile.endsWith('.plugin.js')) {
-            window.catcord.managers.plugin.initPlugin(`file://${pluginPath}`, pluginFile.replace(".plugin.js",""))
+            eval(readFileSync(pluginPath))
         }
     });
 }

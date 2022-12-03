@@ -14,8 +14,6 @@ const whiteList = [
 
 const _whiteList = convertObjToString(whiteList)
 
-document.addEventListener('DOMContentLoaded', () => {
-
     for (const method in console) {
         if (!console[method].__sentry_original__) continue;
         console[method] = console[method].__sentry_original__;
@@ -73,8 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     })(XMLHttpRequest.prototype.open, XMLHttpRequest.prototype.send)
-
-});
 
 function convertObjToString(arr) {
     let arrStr = `[`

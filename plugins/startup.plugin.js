@@ -6,7 +6,7 @@
     let nv = await fetch(`https://raw.githubusercontent.com/catcord-org/catcord/main/package.json?${Date.now()}`)
     nv = await nv.json()
 
-    if (nv.version == cv.version == false) {
+    if (nv.version > cv.version) {
         catcord.utility.ipc.sendSync("catcord_update")
     }
 })()
